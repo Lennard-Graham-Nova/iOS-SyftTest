@@ -13,17 +13,17 @@ import CoreData
 
 extension Server {
     
-    func countryList(completionHandler: @escaping (_ error: Error?) -> Void ) {
+    func countryList(completionHandler: @escaping (_ response: [Mappable]?, _ error: Error?) -> Void ) {
         
         Server.shared.request(.get, path: "all", object: Country.self) { (response: [Mappable]?, error) in
             
             guard error == nil else {
-                completionHandler(error)
+                completionHandler(nil, error)
                 return
             }
             
             DispatchQueue.main.async {
-                completionHandler(nil)
+                completionHandler(response, nil)
             }
         }
     }

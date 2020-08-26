@@ -29,7 +29,7 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
         super.viewDidAppear(animated)
         
         HUD.show(in: view.window!)
-        Server.shared.countryList() { (error) in
+        Server.shared.countryList() { (response, error)  in
             
             HUD.dismiss(from: self.view.window!)
             guard error == nil else {
