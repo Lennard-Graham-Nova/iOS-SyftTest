@@ -31,6 +31,10 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
         HUD.show(in: view.window!)
         Server.shared.countryList() { (response, error)  in
             
+            if let countries = response as? [Country] {
+                self.countries = countries
+            }
+
             HUD.dismiss(from: self.view.window!)
             guard error == nil else {
                 assertionFailure("There was an error: \(error!)")
@@ -49,22 +53,31 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell") as! CountryTableViewCell
-        
-        if let country = countries?[indexPath.row] {
-            cell.country.text = country.name
-            cell.capital.text = country.capital
-            cell.population.text = String(country.population)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CountryInfoCell") as? CountryTableViewCell {
             
-            cell.accessibilityIdentifier = "\(country.name!)-Cell"
-            cell.country.accessibilityIdentifier = "Country"
-            cell.capital.accessibilityIdentifier = "\(country.name!)-Capital"
-            cell.capitalLabel.accessibilityIdentifier = "\(country.name!)-Capital-Label"
-            cell.population.accessibilityIdentifier = "\(country.name!)-Population"
-            cell.populationLabel.accessibilityIdentifier = "\(country.name!)-Population-Label"
+            if let country = countries?[indexPath.row] {
+                cell.country.text = country.name
+                cell.capital.text = country.capital
+                if country.capital == "" {
+                    cell.capitalLabel.isHidden = true
+                } else {
+                    cell.capitalLabel.isHidden = false
+                }
+                
+                cell.population.text = String(country.population.formatLargeNumbers())
 
+                cell.accessibilityIdentifier = "\(country.name!)-Cell"
+                cell.country.accessibilityIdentifier = "Country"
+                cell.capital.accessibilityIdentifier = "\(country.name!)-Capital"
+                cell.capitalLabel.accessibilityIdentifier = "\(country.name!)-Capital-Label"
+                cell.population.accessibilityIdentifier = "\(country.name!)-Population"
+                cell.populationLabel.accessibilityIdentifier = "\(country.name!)-Population-Label"
+                
+            }
+            
+            return cell
         }
-        return cell
+        return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
     
 }

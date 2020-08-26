@@ -27,6 +27,7 @@
 		1AF93B20240EB2F600355AE7 /* CountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF93B1F240EB2F600355AE7 /* CountriesTests.swift */; };
 		1AF93B2B240EB2F600355AE7 /* CountriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF93B2A240EB2F600355AE7 /* CountriesUITests.swift */; };
 		2C874CA63841404087A631D6 /* Pods_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392AF5C9BC090983F77F3251 /* Pods_Countries.framework */; };
+		9D93DBD124F66F2A00EA3147 /* Int32Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D93DBD024F66F2A00EA3147 /* Int32Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		2CB34B181C5E6C83A8895032 /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 		392AF5C9BC090983F77F3251 /* Pods_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C5FD14DC385ED3C8B27BE9 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
+		9D93DBD024F66F2A00EA3147 /* Int32Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int32Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1AAA0341240EB8320073441E /* DictionaryExtension.swift */,
+				9D93DBD024F66F2A00EA3147 /* Int32Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				1AF93B08240EB2F400355AE7 /* CountryListViewController.swift in Sources */,
 				1AAA0346240FC3000073441E /* DataStore.swift in Sources */,
 				1A5628A6241160BE00E004AF /* DictionaryExtension.swift in Sources */,
+				9D93DBD124F66F2A00EA3147 /* Int32Extension.swift in Sources */,
 				1A5628A82411615F00E004AF /* HUD.swift in Sources */,
 				1A8660CD240FCF1700F0A5FE /* Country.swift in Sources */,
 				1AF93B04240EB2F400355AE7 /* AppDelegate.swift in Sources */,
