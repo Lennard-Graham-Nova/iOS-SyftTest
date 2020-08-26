@@ -12,6 +12,12 @@ class CountryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var capital: UILabel!
+    @IBOutlet weak var region: UILabel!
+    @IBOutlet weak var area: UILabel!
+    @IBOutlet weak var regionLabel: UILabel!
+    @IBOutlet weak var regionStackView: UIStackView!
+    @IBOutlet weak var areaLabel: UILabel!
+    @IBOutlet weak var areaStackView: UIStackView!
     @IBOutlet weak var capitalLabel: UILabel!
     @IBOutlet weak var capitalStackView: UIStackView!
     @IBOutlet weak var population: UILabel!

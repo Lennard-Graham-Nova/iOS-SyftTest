@@ -50,25 +50,43 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries?.count ?? 0
     }
+    func hideEmptyLabels(cell: CountryTableViewCell, country: Country) -> CountryTableViewCell {
+        if country.capital == "" {
+            cell.capitalLabel.isHidden = true
+        } else {
+            cell.capitalLabel.isHidden = false
+        }
+        
+        if country.region == "" {
+            cell.regionLabel.isHidden = true
+        } else {
+            cell.regionLabel.isHidden = false
+        }
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "CountryInfoCell") as? CountryTableViewCell {
+        if var cell = tableView.dequeueReusableCell(withIdentifier: "CountryInfoCell") as? CountryTableViewCell {
             
             if let country = countries?[indexPath.row] {
                 cell.country.text = country.name
                 cell.capital.text = country.capital
-                if country.capital == "" {
-                    cell.capitalLabel.isHidden = true
-                } else {
-                    cell.capitalLabel.isHidden = false
-                }
+                cell.area.text = String(country.area)
+                cell.region.text = country.region
+                
+                cell = hideEmptyLabels(cell: cell, country: country)
                 
                 cell.population.text = String(country.population.formatLargeNumbers())
 
                 cell.accessibilityIdentifier = "\(country.name!)-Cell"
                 cell.country.accessibilityIdentifier = "Country"
                 cell.capital.accessibilityIdentifier = "\(country.name!)-Capital"
+                cell.area.accessibilityIdentifier = "Area"
+                cell.region.accessibilityIdentifier = "\(country.name ?? "")Region"
+                
+                cell.regionLabel.accessibilityIdentifier = "\(country.name!)-Region-Label"
+                cell.areaLabel.accessibilityIdentifier = "\(country.name!)-Area-Label"
                 cell.capitalLabel.accessibilityIdentifier = "\(country.name!)-Capital-Label"
                 cell.population.accessibilityIdentifier = "\(country.name!)-Population"
                 cell.populationLabel.accessibilityIdentifier = "\(country.name!)-Population-Label"
