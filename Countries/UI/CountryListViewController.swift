@@ -30,7 +30,7 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
         
         HUD.show(in: view.window!)
         Server.shared.countryList() { (response, error)  in
-            
+            //Optional binding to make sure the value needed can be casted into country type
             if let countries = response as? [Country] {
                 self.countries = countries
             }
@@ -45,12 +45,8 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    
-    // MARK:- UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries?.count ?? 0
-    }
-    func hideEmptyLabels(cell: CountryTableViewCell, country: Country) -> CountryTableViewCell {
+    //I hid the copitalLabel from the UITests when the capital is empty
+    private func hideEmptyLabels(cell: CountryTableViewCell, country: Country) -> CountryTableViewCell {
         if country.capital == "" {
             cell.capitalLabel.isHidden = true
         } else {
@@ -63,6 +59,12 @@ class CountryListViewController: UIViewController, UITableViewDataSource {
             cell.regionLabel.isHidden = false
         }
         return cell
+    }
+     
+    
+    // MARK:- UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countries?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

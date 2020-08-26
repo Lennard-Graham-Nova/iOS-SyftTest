@@ -10,6 +10,7 @@ import Foundation
 
 extension Int32 {
     
+    //Added this function to make accessible for any future Int32 types I want to use for large numbers
     func formatLargeNumbers() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
