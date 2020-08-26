@@ -5,7 +5,7 @@ PODS:
     - ObjectMapper (~> 3.5.1)
   - INSPersistentContainer (1.0.2)
   - MBProgressHUD (1.2.0)
-  - ObjectMapper (3.5.3)
+  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
   - Alamofire (= 5.0.0-rc.2)
@@ -26,7 +26,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
   INSPersistentContainer: 7e04a0d332ba075441ce0ee73d584ce84d76ac23
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
 PODFILE CHECKSUM: d4d64b3374c75b57639a67bac2b984e5cacd0c04
 
